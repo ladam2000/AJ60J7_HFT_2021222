@@ -1,6 +1,10 @@
 ﻿using AJ60J7_HFT_2021222.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Aj60J7_HFT_2021222.Data
 {
@@ -29,13 +33,14 @@ namespace Aj60J7_HFT_2021222.Data
 
         }
 
+        string coonStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True";
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.
                     UseLazyLoadingProxies().
-                    UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf; Integrated Security=True");
+                    UseSqlServer(coonStr);
             }
         }
 
