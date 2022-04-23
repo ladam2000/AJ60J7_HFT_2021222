@@ -26,7 +26,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{A4233D
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aj60J7_HFT_2021222.Data", "AJ60J7_HFT_2021222.Data\Aj60J7_HFT_2021222.Data.csproj", "{0D4B3D39-0C7F-421C-9B13-3191E1B7DBF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AJ60J7_HFT_2021222.Data", "AJ60J7_HFT_2021222.Data\AJ60J7_HFT_2021222.Data.csproj", "{0D4B3D39-0C7F-421C-9B13-3191E1B7DBF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
