@@ -7,6 +7,6 @@ namespace AJ60J7_HFT_2021222.Endpoint
 {
     public class Startup
     {
-        
+      
     }
 }
