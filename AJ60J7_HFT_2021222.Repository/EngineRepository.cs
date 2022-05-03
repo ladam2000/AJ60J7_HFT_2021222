@@ -14,13 +14,11 @@ namespace AJ60J7_HFT_2021222.Repository
         {
             context = ctx;
         }
-
         public void Create(Engine engine)
         {
             context.Add(engine);
             context.SaveChanges();
         }
-
         public Engine ReadOne(int id)
         {
             return context
@@ -31,20 +29,14 @@ namespace AJ60J7_HFT_2021222.Repository
         {
             return context.Engines;
         }
-
         public void Update(Engine engine)
         {
-            Engine old = ReadOne(engine.Id);
-            //milyen kapcsolat van az engine és auto között??
-            //ha egy engine több autoban van, akkor jav, mert itt a CarId-t is frissíteni kellene
-            //old.CarId = 
+            Engine old = ReadOne(engine.Id); 
             old.Type = engine.Type;
             old.Horsepower = engine.Horsepower;
             old.CarId = engine.CarId;
-
             context.SaveChanges();
         }
-
         public void Delete(int engineId)
         {
             context.Engines.Remove(ReadOne(engineId));
