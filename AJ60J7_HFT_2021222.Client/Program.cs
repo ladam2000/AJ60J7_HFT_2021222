@@ -49,32 +49,32 @@ namespace AJ60J7_HFT_2021222.Client
         }
         private static void Menu()
         {
-            Console.WriteLine("  ===============================");
-            Console.WriteLine("||                               ||");
-            Console.WriteLine("||       Car Database Menu       ||");
-            Console.WriteLine("||                               ||");
-            Console.WriteLine("|| [CRUDs]                       ||");
-            Console.WriteLine("|| [1] Create  Brand/Car/Engine  ||");
-            Console.WriteLine("|| [2] Read    Brand/Car/Engine  ||");
-            Console.WriteLine("|| [3] Update  Brand/Car/Engine  ||");
-            Console.WriteLine("|| [4] Delete  Brand/Car/Engine  ||");
-            Console.WriteLine("||                               ||");
-            Console.WriteLine("|| [non CRUDs]                   ||");
-            Console.WriteLine("|| [5] AveragePriceByBrands      ||");
-            Console.WriteLine("|| [6] AveragePriceByEngineTypes ||");
-            Console.WriteLine("|| [7] EngineTypeUsage           ||");
-            Console.WriteLine("|| [8] BrandPopularity           ||");
-            Console.WriteLine("|| [9] DieselCostHigherThan4k    ||");
-            Console.WriteLine("||                               ||");
-            Console.WriteLine("|| [X] Exit                      ||");
-            Console.WriteLine("||                               ||");
-            Console.WriteLine("  ===============================");
+            Console.WriteLine("************************************");
+            Console.WriteLine("*                                  *");
+            Console.WriteLine("*       Car Database Menu          *");
+            Console.WriteLine("*                                  *");
+            Console.WriteLine("*             CRUDs                *");
+            Console.WriteLine("* [1] Create  Brand/Car/Engine     *");
+            Console.WriteLine("* [2] Read    Brand/Car/Engine     *");
+            Console.WriteLine("* [3] Update  Brand/Car/Engine     *");
+            Console.WriteLine("* [4] Delete  Brand/Car/Engine     *");
+            Console.WriteLine("*                                  *");
+            Console.WriteLine("*           non CRUDs              *");
+            Console.WriteLine("* [5] AveragePriceByBrands         *");
+            Console.WriteLine("* [6] AveragePriceByEngineTypes    *");
+            Console.WriteLine("* [7] EngineTypeUsage              *");
+            Console.WriteLine("* [8] BrandPopularity              *");
+            Console.WriteLine("* [9] DieselCostHigherThan4k       *");
+            Console.WriteLine("*                                  *");
+            Console.WriteLine("* [X] Exit                         *");
+            Console.WriteLine("*                                  *");
+            Console.WriteLine("************************************");
         }
         private static void Create()
         {
             Console.Clear();
             RestService rest = new RestService("http://localhost:44728");
-            Console.WriteLine("Select what to CREATE: Brand/Car/Engine");
+            Console.WriteLine("Choose what you want to CREATE: Brand/Car/Engine");
             string selection = Console.ReadLine();
 
             if (selection.ToUpper() == "BRAND")

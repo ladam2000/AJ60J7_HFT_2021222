@@ -20,15 +20,18 @@ namespace AJ60J7_HFT_2021222.Test
             var mockBrandRepo = new Mock<IDefaultRepository<Brand>>();
             var mockEngineRepo = new Mock<IDefaultRepository<Engine>>();
 
-            Brand b1 = new Brand() { Id = 1, Name = "BMW" };
-            Brand b2 = new Brand() { Id = 2, Name = "Audi" };
+            Brand brand1 = new Brand() { Id = 1, Name = "BMW" };
+            Brand brand2 = new Brand() { Id = 2, Name = "Audi" };
 
-            Engine e1 = new Engine() { Id = 1, Type = "Diesel" };
-            Engine e2 = new Engine() { Id = 2, Type = "Diesel" };
-            Engine e3 = new Engine() { Id = 3, Type = "Petrol" };
-            Engine e4 = new Engine() { Id = 4, Type = "Petrol" };
-            Engine e5 = new Engine() { Id = 5, Type = "Electric" };
-            Engine e6 = new Engine() { Id = 6, Type = "Hybrid" };
+            Engine engine1 = new Engine() { Id = 1, Type = "Diesel" };
+            Engine engine2 = new Engine() { Id = 2, Type = "Diesel" };
+
+            Engine engine3 = new Engine() { Id = 3, Type = "Petrol" };
+            Engine engine4 = new Engine() { Id = 4, Type = "Petrol" };
+
+            Engine engine5 = new Engine() { Id = 5, Type = "Electric" };
+            Engine engine6 = new Engine() { Id = 6, Type = "Hybrid" };
+
 
             mockCarRepo
                 .Setup(x => x.ReadAll())
@@ -36,52 +39,52 @@ namespace AJ60J7_HFT_2021222.Test
                 {
                     new Car() {
                         BasePrice = 3000,
-                        Brand = b1,
+                        Brand = brand1,
                         Id = 1,
-                        Engine = e1
+                        Engine = engine1
                     },
                     new Car() {
                         BasePrice = 4000,
-                        Brand = b1,
+                        Brand = brand1,
                         Id = 2,
-                        Engine = e2
+                        Engine = engine2
                     },
                     new Car() {
                         BasePrice = 7000,
-                        Brand = b2,
+                        Brand = brand2,
                         Id = 3,
-                        Engine = e3
+                        Engine = engine3
                     },
                     new Car() {
                         BasePrice = 4000,
-                        Brand = b2,
+                        Brand = brand2,
                         Id = 4,
-                        Engine = e4
+                        Engine = engine4
                     },
                     new Car() {
                         BasePrice = 4000,
-                        Brand = b2,
+                        Brand = brand2,
                         Id = 5,
-                        Engine = e5
+                        Engine = engine5
                     },
                     new Car() {
                         BasePrice = 5000,
-                        Brand = b2,
+                        Brand = brand2,
                         Id = 6,
-                        Engine = e6
+                        Engine = engine6
                     },
                 }.AsQueryable());
 
             mockBrandRepo
                 .Setup(x => x.ReadAll())
                 .Returns(new List<Brand>
-                {b1, b2 }
+                {brand1, brand2 }
                 .AsQueryable());
 
             mockEngineRepo
                 .Setup(x => x.ReadAll())
                 .Returns(new List<Engine>
-                {e1, e2, e3, e4, e5, e6 }
+                {engine1, engine2, engine3, engine4, engine5, engine6 }
                 .AsQueryable());
 
             carLogic = new CarLogic(mockCarRepo.Object, mockBrandRepo.Object, mockEngineRepo.Object);
@@ -90,47 +93,9 @@ namespace AJ60J7_HFT_2021222.Test
         }
         #region non-CRUD tests
         [Test]
-        public void AveragePBB_Test()
-        {
-            var avg = carLogic.AveragePBB().ToArray();
-
-            //BMW = 3500
-            //Audi = 5000
-
-            Assert.That(avg[0], Is.EqualTo(
-                new KeyValuePair<string, double>("BMW", 3500)));
-
-            Assert.That(avg[1], Is.EqualTo(
-                new KeyValuePair<string, double>("Audi", 5000)));
-        }
-        [Test]
-        public void AveragePBET_Test()
-        {
-            var avg = carLogic.AveragePriceByEngineTypes().ToArray();
-
-            //Diesel = 3500
-            //Petrol = 5500
-            //Electric = 4000
-            //Hybrid = 5000
-
-            Assert.That(avg[0], Is.EqualTo(
-                new KeyValuePair<string, double>("Diesel", 3500)));
-            Assert.That(avg[1], Is.EqualTo(
-                new KeyValuePair<string, double>("Petrol", 5500)));
-            Assert.That(avg[2], Is.EqualTo(
-                new KeyValuePair<string, double>("Electric", 4000)));
-            Assert.That(avg[3], Is.EqualTo(
-                new KeyValuePair<string, double>("Hybrid", 5000)));
-
-        }
-        [Test]
-        public void EngineTypeUsage_Test()
+        public void Engine_Type_Usage_Test1()
         {
             var result = carLogic.EngineTypeUsage().ToArray();
-
-            //Diesel = 2
-            //Petrol = 2
-            //Electric, Hybrid = 1
 
             Assert.That(result[0], Is.EqualTo(
                 new KeyValuePair<string, double>("Diesel", 2)));
@@ -142,34 +107,64 @@ namespace AJ60J7_HFT_2021222.Test
                 new KeyValuePair<string, double>("Hybrid", 1)));
 
         }
+        
         [Test]
-        public void BrandPopularity_Test()
+        public void Avg_PBET_Test2()
+        {
+            var avg = carLogic.AveragePriceByEngineTypes().ToArray();
+            Assert.That(avg[0], Is.EqualTo(
+                new KeyValuePair<string, double>("Diesel", 3500)));
+            Assert.That(avg[1], Is.EqualTo(
+                new KeyValuePair<string, double>("Petrol", 5500)));
+            Assert.That(avg[2], Is.EqualTo(
+                new KeyValuePair<string, double>("Electric", 4000)));
+            Assert.That(avg[3], Is.EqualTo(
+                new KeyValuePair<string, double>("Hybrid", 5000)));
+        }
+        
+        [Test]
+        public void Brand_Pop_Test3()
         {
             var result = brandLogic.BrandPopularity().ToArray();
-
-            //bmw = 2
-            //audi = 4
-
             Assert.That(result[0], Is.EqualTo(
                 new KeyValuePair<string, double>("BMW", 2)));
             Assert.That(result[1], Is.EqualTo(
                 new KeyValuePair<string, double>("Audi", 4)));
         }
         [Test]
-        public void DieselCostHigherThan4k_Test()
+        public void Diesel_CostHigherThank_Test4()
         {
             var result = engineLogic.DieselCostHigherThan4k().ToArray();
-
-            //Diesel = 4000
-
             Assert.That(result[0], Is.EqualTo(
                 new KeyValuePair<string, int?>("Diesel", 4000)));
-
+        }
+        [Test]
+        public void Avg_PBB_Test5()
+        {
+            var avg = carLogic.AveragePBB().ToArray();
+            Assert.That(avg[0], Is.EqualTo(
+                new KeyValuePair<string, double>("BMW", 3500)));
+            Assert.That(avg[1], Is.EqualTo(
+                new KeyValuePair<string, double>("Audi", 5000)));
+        }
+        #endregion
+        #region Other tests
+        [Test]
+        public void Avg_Price_Test6()
+        {
+            var avg = carLogic.AveragePrice();
+            Assert.That(avg, Is.EqualTo(4500));
+        }
+        [Test]
+        public void Highest_Price_Test7()
+        {
+            var result = carLogic.HighestPrice();
+            Assert.That(result, Is.EqualTo(7000));
         }
         #endregion
         #region Create tests
         [Test]
-        public void CarCreate_Test()
+        public void Create_Car_Test8()
         {
             Assert.That(() => carLogic.Create(new Car()
             {
@@ -178,7 +173,7 @@ namespace AJ60J7_HFT_2021222.Test
             }), Throws.Exception);
         }
         [Test]
-        public void BrandCreate_Test()
+        public void Create_Brand_Test9()
         {
             Assert.That(() => brandLogic.Create(new Brand()
             {
@@ -186,7 +181,7 @@ namespace AJ60J7_HFT_2021222.Test
             }), Throws.Exception);
         }
         [Test]
-        public void EngineCreate_Test()
+        public void Create_Engine_Test10()
         {
             Assert.That(() => engineLogic.Create(new Engine()
             {
@@ -194,25 +189,6 @@ namespace AJ60J7_HFT_2021222.Test
             }), Throws.Exception);
         }
         #endregion
-        #region Other tests
-        [Test]
-        public void AveragePrice_Test()
-        {
-            var avg = carLogic.AveragePrice();
-
-            //avg = 4500
-
-            Assert.That(avg, Is.EqualTo(4500));
-        }
-        [Test]
-        public void HighestPrice_Test()
-        {
-            var result = carLogic.HighestPrice();
-
-            //result = 7000
-
-            Assert.That(result, Is.EqualTo(7000));
-        }
-        #endregion
+        
     }
 }
