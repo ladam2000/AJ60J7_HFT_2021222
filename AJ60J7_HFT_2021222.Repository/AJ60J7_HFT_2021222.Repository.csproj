@@ -5,7 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AJ60J7_HFT_2021222.Data\AJ60J7_HFT_2021222.Data.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.15" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AJ60J7_HFT_2021222.Models\AJ60J7_HFT_2021222.Models.csproj" />
   </ItemGroup>
 

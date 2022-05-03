@@ -1,5 +1,4 @@
-﻿using Aj60J7_HFT_2021222.Data;
-using AJ60J7_HFT_2021222.Models;
+﻿using AJ60J7_HFT_2021222.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

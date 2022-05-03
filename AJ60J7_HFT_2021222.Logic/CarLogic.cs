@@ -65,6 +65,7 @@ namespace AJ60J7_HFT_2021222.Logic
                    (g.Key, g.Count());
 
         }
+        #endregion
         public void Create(Car car)
         {
             if (car.BasePrice < 0)

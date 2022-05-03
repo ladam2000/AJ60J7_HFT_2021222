@@ -38,16 +38,6 @@ namespace AJ60J7_HFT_2021222.Logic
             bRepo.Create(brand);
         }
 
-        public void Delete(int brandId)
-        {
-            bRepo.Delete(brandId);
-        }
-
-        public void Update(Brand brand)
-        {
-            bRepo.Update(brand);
-        }
-
         public IEnumerable<Brand> ReadAll()
         {
             return bRepo.ReadAll();
@@ -58,6 +48,14 @@ namespace AJ60J7_HFT_2021222.Logic
             return bRepo.ReadOne(id);
         }
 
-        
+        public void Update(Brand brand)
+        {
+            bRepo.Update(brand);
+        }
+
+        public void Delete(int brandId)
+        {
+            bRepo.Delete(brandId);
+        }
     }
 }
