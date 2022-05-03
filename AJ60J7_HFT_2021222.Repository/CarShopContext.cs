@@ -10,9 +10,10 @@ namespace AJ60J7_HFT_2021222.Repository
 {
     public class CarShopContext : DbContext
     {
-        public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<Car> Cars { get; set; }
         public virtual DbSet<Engine> Engines { get; set; }
+        public virtual DbSet<Brand> Brands { get; set; }
+        
 
         public CarShopContext()
         {

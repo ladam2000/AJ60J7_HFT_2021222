@@ -10,10 +10,10 @@ namespace AJ60J7_HFT_2021222.Logic
     public interface IBrandLogic
     {
         IEnumerable<KeyValuePair<string, double>> BrandPopularity();
-        void Create(Brand brand);
-        void Delete(int brandId);
         IEnumerable<Brand> ReadAll();
         Brand ReadOne(int id);
+        void Create(Brand brand);
+        void Delete(int brandId);
         void Update(Brand brand);
     }
 }

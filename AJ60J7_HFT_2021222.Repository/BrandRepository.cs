@@ -15,12 +15,12 @@ namespace AJ60J7_HFT_2021222.Repository
         {
             context = ctx;
         }
-
-        public void Create(Brand brand)
+        public void Delete(int brandID)
         {
-            context.Add(brand);
+            context.Brands.Remove(ReadOne(brandID));
             context.SaveChanges();
         }
+
 
         public Brand ReadOne(int id)
         {
@@ -32,17 +32,18 @@ namespace AJ60J7_HFT_2021222.Repository
         {
             return context.Brands;
         }
+        public void Create(Brand brand)
+        {
+            context.Add(brand);
+            context.SaveChanges();
+        }
+        
+
+        
         public void Update(Brand brand)
         {
             Brand old = ReadOne(brand.Id);
-
             old.Name = brand.Name;
-        }
-
-        public void Delete(int brandID)
-        {
-            context.Brands.Remove(ReadOne(brandID));
-            context.SaveChanges();
         }
     }
 }

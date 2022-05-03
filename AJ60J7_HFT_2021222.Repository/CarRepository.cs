@@ -14,11 +14,7 @@ namespace AJ60J7_HFT_2021222.Repository
         {
             context = ctx;
         }
-        public void Create(Car car)
-        {
-            context.Cars.Add(car);
-            context.SaveChanges();
-        }
+        
 
         public Car ReadOne(int id)
         {
@@ -34,15 +30,16 @@ namespace AJ60J7_HFT_2021222.Repository
         public void Update(Car car)
         {
             Car old = ReadOne(car.Id);
-
-            old.Model = car.Model;
             old.BasePrice = car.BasePrice;
             old.BrandId = car.BrandId;
-
-
+            old.Model = car.Model;
             context.SaveChanges();
         }
-
+        public void Create(Car car)
+        {
+            context.Cars.Add(car);
+            context.SaveChanges();
+        }
         public void Delete(int carId)
         {
             context.Cars.Remove(ReadOne(carId));

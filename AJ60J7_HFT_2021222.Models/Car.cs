@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace AJ60J7_HFT_2021222.Models
@@ -15,13 +16,14 @@ namespace AJ60J7_HFT_2021222.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-
+        [MaxLength(50)]
+        [Required]
         public string Model { get; set; }
 
         public int? BasePrice { get; set; }
 
         [NotMapped]
-        
+        [JsonIgnore]
         public virtual Brand Brand { get; set; }
 
         [ForeignKey(nameof(Brand))]

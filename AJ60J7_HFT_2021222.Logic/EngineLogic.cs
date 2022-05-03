@@ -10,54 +10,55 @@ namespace AJ60J7_HFT_2021222.Logic
 {
     public class EngineLogic : IEngineLogic
     {
-        IDefaultRepository<Car> cRepo;
-        IDefaultRepository<Engine> eRepo;
+        IDefaultRepository<Car> C_rep;
+        IDefaultRepository<Engine> E_rep;
 
-        public EngineLogic(IDefaultRepository<Engine> eRepo,
-            IDefaultRepository<Car> cRepo)
+        public EngineLogic(IDefaultRepository<Engine> eRepo,IDefaultRepository<Car> cRepo)
         {
-            this.eRepo = eRepo;
-            this.cRepo = cRepo;
+            this.E_rep = eRepo;
+            this.C_rep = cRepo;
 
         }
 
         public IEnumerable<KeyValuePair<string, int?>> DieselCostHigherThan4k()
         {
-            return from c in cRepo.ReadAll().ToList()
-                   join e in eRepo.ReadAll().ToList()
+            return from c in C_rep.ReadAll().ToList()
+                   join e in E_rep.ReadAll().ToList()
                    on c.Engine.Id equals e.Id
                    where c.BasePrice >= 3500 && e.Type == "Diesel"
                    select new KeyValuePair<string, int?>
                    (e.Type, c.BasePrice);
 
         }
-
+        public IEnumerable<Engine> ReadAll()
+        {
+            return E_rep.ReadAll();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="engine"></param>
         public void Create(Engine engine)
         {
             long number = 0;
             bool isNumber = long.TryParse(engine.Type, out number);
             if (isNumber)
-                throw new Exception("The type cannot be just numbers!");
-            eRepo.Create(engine);
+                throw new Exception("Type can't be just a number!");
+            E_rep.Create(engine);
         }
-
-        public IEnumerable<Engine> ReadAll()
+        public void Update(Engine engine)
         {
-            return eRepo.ReadAll();
+            E_rep.Update(engine);
         }
 
         public Engine ReadOne(int id)
         {
-            return eRepo.ReadOne(id);
+            return E_rep.ReadOne(id);
         }
-        public void Update(Engine engine)
-        {
-            eRepo.Update(engine);
-        }
-
+        
         public void Delete(int engineId)
         {
-            eRepo.Delete(engineId);
+            E_rep.Delete(engineId);
         }
     }
 }

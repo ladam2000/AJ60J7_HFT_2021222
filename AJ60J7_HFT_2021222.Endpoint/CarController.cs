@@ -12,28 +12,23 @@ namespace AJ60J7_HFT_2021222.Endpoint
     [ApiController]
     public class CarController : ControllerBase
     {
-
         ICarLogic logic;
-
         public CarController(ICarLogic cl)
         {
             this.logic = cl;
         }
-
-        // GET: /car
+        // --> GET: /car
         [HttpGet]
         public IEnumerable<Car> GetAll()
         {
             return logic.ReadAll();
         }
-
-        //GET /car/{id}
+        // --> GET /car/{id}
         [HttpGet("{id}")]
         public Car GetOne(int id)
         {
             return logic.ReadOne(id);
         }
-
         // POST /car
         //Create
         [HttpPost]
@@ -41,7 +36,6 @@ namespace AJ60J7_HFT_2021222.Endpoint
         {
             logic.Create(value);
         }
-
         // PUT /car
         //Update
         [HttpPut]
@@ -49,7 +43,6 @@ namespace AJ60J7_HFT_2021222.Endpoint
         {
             logic.Update(value);
         }
-
         // DELETE /car/{carId}
         [HttpDelete("{id}")]
         public void DeleteOne([FromRoute] int carId)

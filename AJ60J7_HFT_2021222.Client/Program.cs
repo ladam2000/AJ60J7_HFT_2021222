@@ -10,7 +10,7 @@ namespace AJ60J7_HFT_2021222.Client
         {
             System.Threading.Thread.Sleep(8000);
 
-            //RestService rest = new RestService("http://localhost:24734");
+            //RestService rest = new RestService("http://localhost:44728");
 
             //Car car = rest.Get<Car>(3, "car");
 
@@ -73,7 +73,7 @@ namespace AJ60J7_HFT_2021222.Client
         private static void Create()
         {
             Console.Clear();
-            RestService rest = new RestService("http://localhost:24734");
+            RestService rest = new RestService("http://localhost:44728");
             Console.WriteLine("Select what to CREATE: Brand/Car/Engine");
             string selection = Console.ReadLine();
 
@@ -117,7 +117,7 @@ namespace AJ60J7_HFT_2021222.Client
         private static void Read()
         {
             Console.Clear();
-            RestService rest = new RestService("http://localhost:24734");
+            RestService rest = new RestService("http://localhost:44728");
             Console.WriteLine("Select what to READ: Brand/Car/Engine");
             string selection = Console.ReadLine();
 
@@ -157,7 +157,7 @@ namespace AJ60J7_HFT_2021222.Client
         private static void Update()
         {
             Console.Clear();
-            RestService rest = new RestService("http://localhost:24734");
+            RestService rest = new RestService("http://localhost:44728");
             Console.WriteLine("Select what to UPDATE: Brand/Car/Engine");
             string selection = Console.ReadLine();
 
@@ -204,7 +204,7 @@ namespace AJ60J7_HFT_2021222.Client
         private static void Delete()
         {
             Console.Clear();
-            RestService rest = new RestService("http://localhost:24734");
+            RestService rest = new RestService("http://localhost:44728");
             Console.WriteLine("Select what to DELETE: Brand/Car/Engine");
             string selection = Console.ReadLine();
 

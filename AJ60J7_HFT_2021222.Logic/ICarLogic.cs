@@ -11,13 +11,19 @@ namespace AJ60J7_HFT_2021222.Logic
     {
         double HighestPrice();
         double AveragePrice();
+
+        IEnumerable<KeyValuePair<string, double>> EngineTypeUsage();
         IEnumerable<KeyValuePair<string, double>> AveragePBB();
         IEnumerable<KeyValuePair<string, double>> AveragePriceByEngineTypes();
-        IEnumerable<KeyValuePair<string, double>> EngineTypeUsage();
-        void Create(Car car);
-        IEnumerable<Car> ReadAll();
-        Car ReadOne(int id);
+
         void Update(Car car);
+        void Create(Car car);
         void Delete(int carId);
+
+        
+        IEnumerable<Car> ReadAll();
+
+        Car ReadOne(int id);
+        
     }
 }

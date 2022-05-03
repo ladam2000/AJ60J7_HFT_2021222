@@ -18,7 +18,6 @@ namespace AJ60J7_HFT_2021222.Endpoint
         {
             this.logic = lc;
         }
-
         // GET: api/<EngineController>
         [HttpGet]
         public IEnumerable<Engine> GetAll()
@@ -46,7 +45,7 @@ namespace AJ60J7_HFT_2021222.Endpoint
             logic.Update(value);
         }
 
-        // DELETE api/<EngineController>/5
+        //DELETE api/<EngineController>/5
         [HttpDelete("{id}")]
         public void DeleteOne(int id)
         {

@@ -12,6 +12,8 @@ namespace AJ60J7_HFT_2021222.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [MaxLength(50)]
+        [Required]
         public string Name { get; set; }
 
         [NotMapped]
