@@ -8,9 +8,11 @@ namespace AJ60J7_HFT_2021222.Repository
 {
     public interface IDefaultRepository<T>
     {
+        IQueryable<T> ReadAll();
+
         void Create(T item);
         T ReadOne(int id);
-        IQueryable<T> ReadAll();
+        
         void Update(T item);
         void Delete(int itemID);
     }
