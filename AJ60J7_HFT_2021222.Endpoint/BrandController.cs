@@ -18,7 +18,7 @@ namespace AJ60J7_HFT_2021222.Endpoint
         {
             this.logic = lc;
         }
-        // GET: api/<BrandController>
+      
         [HttpGet]
         public IEnumerable<Brand> GetAll()
         {
@@ -31,21 +31,21 @@ namespace AJ60J7_HFT_2021222.Endpoint
             return logic.ReadOne(id);
         }
 
-        // POST api/<BrandController>
+        // POST BrandController
         [HttpPost]
         public void AddOne([FromBody] Brand value)
         {
             logic.Create(value);
         }
 
-        // PUT api/<BrandController>/5
+     
         [HttpPut]
         public void UpdateOne([FromBody] Brand value)
         {
             logic.Update(value);
         }
 
-        // DELETE api/<BrandController>/5
+        // DELETE BrandController
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

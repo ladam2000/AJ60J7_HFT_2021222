@@ -12,8 +12,6 @@ namespace AJ60J7_HFT_2021222.Client
 
             //RestService rest = new RestService("http://localhost:44728");
 
-            //Car car = rest.Get<Car>(3, "car");
-
             Menu();
             string navigator = Console.ReadLine();
             while (navigator.ToUpper() != "X")
@@ -41,11 +39,6 @@ namespace AJ60J7_HFT_2021222.Client
                 Menu();
                 navigator = Console.ReadLine();
             }
-
-            //var brands = rest.Get<Brand>("brand");
-
-            //var avgprice = rest.GetSingle<KeyValuePair<string, double>>("stat/averagepbb");
-            ;
         }
         private static void Menu()
         {

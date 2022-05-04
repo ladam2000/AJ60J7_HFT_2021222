@@ -31,7 +31,6 @@ namespace AJ60J7_HFT_2021222.Client
             }
 
         }
-
         public List<T> Get<T>(string endpoint)
         {
             List<T> items = new List<T>();
@@ -42,7 +41,6 @@ namespace AJ60J7_HFT_2021222.Client
             }
             return items;
         }
-
         public T GetSingle<T>(string endpoint)
         {
             T item = default(T);
@@ -53,7 +51,6 @@ namespace AJ60J7_HFT_2021222.Client
             }
             return item;
         }
-
         public T Get<T>(int id, string endpoint)
         {
             T item = default(T);
@@ -69,7 +66,6 @@ namespace AJ60J7_HFT_2021222.Client
         {
             HttpResponseMessage response =
                 client.PostAsJsonAsync(endpoint, item).GetAwaiter().GetResult();
-
             response.EnsureSuccessStatusCode();
         }
 
@@ -77,7 +73,6 @@ namespace AJ60J7_HFT_2021222.Client
         {
             HttpResponseMessage response =
                 client.DeleteAsync(endpoint + "/" + id.ToString()).GetAwaiter().GetResult();
-
             response.EnsureSuccessStatusCode();
         }
 
@@ -85,8 +80,6 @@ namespace AJ60J7_HFT_2021222.Client
         {
             HttpResponseMessage response =
                 client.PutAsJsonAsync(endpoint, item).GetAwaiter().GetResult();
-
-
             response.EnsureSuccessStatusCode();
         }
     }

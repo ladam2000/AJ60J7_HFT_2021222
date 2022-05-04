@@ -17,33 +17,30 @@ namespace AJ60J7_HFT_2021222.Endpoint
         {
             this.logic = cl;
         }
-        // --> GET: /car
+
         [HttpGet]
         public IEnumerable<Car> GetAll()
         {
             return logic.ReadAll();
         }
-        // --> GET /car/{id}
+
         [HttpGet("{id}")]
         public Car GetOne(int id)
         {
             return logic.ReadOne(id);
         }
-        // POST /car
-        //Create
+
         [HttpPost]
         public void AddOne([FromBody] Car value)
         {
             logic.Create(value);
         }
-        // PUT /car
-        //Update
         [HttpPut]
         public void EditOne([FromBody] Car value)
         {
             logic.Update(value);
         }
-        // DELETE /car/{carId}
+
         [HttpDelete("{id}")]
         public void DeleteOne([FromRoute] int carId)
         {
