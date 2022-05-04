@@ -30,21 +30,19 @@ namespace AJ60J7_HFT_2021222.Endpoint
             return logic.ReadOne(id);
         }
 
-        // POST api/<EngineController>
+
         [HttpPost]
         public void CreateOne([FromBody] Engine value)
         {
             logic.Create(value);
         }
 
-        // PUT api/<EngineController>/5
         [HttpPut]
         public void UpdateOne([FromBody] Engine value)
         {
             logic.Update(value);
         }
 
-        //DELETE api/<EngineController>/5
         [HttpDelete("{id}")]
         public void DeleteOne(int id)
         {

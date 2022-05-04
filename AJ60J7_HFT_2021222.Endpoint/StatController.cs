@@ -22,21 +22,18 @@ namespace AJ60J7_HFT_2021222.Endpoint
             this.el = el;
         }
 
-        // GET: /stat/averagePBB
         [HttpGet]
         public IEnumerable<KeyValuePair<string, double>> AveragePBB()
         {
             return cl.AveragePBB();
         }
 
-        // GET: /stat/AveragePriceByEngineTypes
         [HttpGet]
         public IEnumerable<KeyValuePair<string, double>> AveragePriceByEngineTypes()
         {
             return cl.AveragePriceByEngineTypes();
         }
 
-        // GET: /stat/EngineTypeUsage
         [HttpGet]
         public IEnumerable<KeyValuePair<string, double>> EngineTypeUsage()
         {
