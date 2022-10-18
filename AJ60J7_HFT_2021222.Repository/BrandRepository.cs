@@ -44,6 +44,7 @@ namespace AJ60J7_HFT_2021222.Repository
         {
             Brand old = ReadOne(brand.Id);
             old.Name = brand.Name;
+            context.SaveChanges();
         }
     }
 }

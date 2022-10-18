@@ -10,15 +10,15 @@
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchUrl": "car",
+      "launchUrl": "swagger",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "H89R6J_HFT_2021221.Endpoint": {
+    "AJ60J7_HFT_2021222.Endpoint": {
       "commandName": "Project",
-      "launchUrl": "car",
+      "launchUrl": "swagger",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
       "applicationUrl": "http://localhost:5000",
