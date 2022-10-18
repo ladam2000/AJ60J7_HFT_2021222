@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32228.343
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AJ60J7_HFT_2021222.Client", "AJ60J7_HFT_2021222.Client\AJ60J7_HFT_2021222.Client.csproj", "{8AB645FD-3AB2-45D2-BEA6-CF405AD3E974}"
 EndProject
@@ -24,7 +24,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{A4233D
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AJ60J7_HFT_2021222.Endpoint", "AJ60J7_HFT_2021222.Endpoint\AJ60J7_HFT_2021222.Endpoint.csproj", "{77A32F16-6EEF-497C-AEC3-F2CCD990B04F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AJ60J7_HFT_2021222.Endpoint", "AJ60J7_HFT_2021222.Endpoint\AJ60J7_HFT_2021222.Endpoint.csproj", "{77A32F16-6EEF-497C-AEC3-F2CCD990B04F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AJ60J7_HFT_2021222.WpfClient", "AJ60J7_HFT_2021222.WpfClient\AJ60J7_HFT_2021222.WpfClient.csproj", "{691C757D-9CED-42EC-953E-985786D98D97}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +58,10 @@ Global
 		{77A32F16-6EEF-497C-AEC3-F2CCD990B04F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77A32F16-6EEF-497C-AEC3-F2CCD990B04F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77A32F16-6EEF-497C-AEC3-F2CCD990B04F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{691C757D-9CED-42EC-953E-985786D98D97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{691C757D-9CED-42EC-953E-985786D98D97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{691C757D-9CED-42EC-953E-985786D98D97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{691C757D-9CED-42EC-953E-985786D98D97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{1BA192AA-7C62-40E5-B295-2FEB900F9DBE} = {73F53F2A-8FFF-4C19-B47D-AF92B077EF48}
 		{7FB174AB-17DF-4E90-8BF0-C0532D16E87E} = {73F53F2A-8FFF-4C19-B47D-AF92B077EF48}
 		{77A32F16-6EEF-497C-AEC3-F2CCD990B04F} = {73F53F2A-8FFF-4C19-B47D-AF92B077EF48}
+		{691C757D-9CED-42EC-953E-985786D98D97} = {7B384138-77EE-4AB8-8708-0B18FFD54084}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0B16027D-7B98-4A7E-B430-57BCE8687055}
