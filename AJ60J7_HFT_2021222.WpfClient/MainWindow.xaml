@@ -31,6 +31,7 @@
             <Button Content="Create Brand" Command="{Binding CreatBrandCommand}" Margin="10" Padding="10" Background="LightGreen" />
             <Button Content="Delete Brand" Command="{Binding DeleteBrandCommand}" Margin="10" Padding="10" Background="OrangeRed"/>
             <Button Content="Update Brand" Command="{Binding UpdateBrandCommand}" Margin="10" Padding="10" Background="LightYellow"/>
+            <Button Content="Exit" Command="{Binding UpdateBrandCommand}" Margin="10" Padding="10" Background="DarkRed"/>
             <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
         </StackPanel>
     </Grid>
