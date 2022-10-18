@@ -22,19 +22,9 @@ namespace AJ60J7_HFT_2021222.WpfClient
             set { SetProperty(ref errorMessage, value); }
         }
 
-        public RestCollection<Car> Cars { get; set; }
         public RestCollection<Brand> Brands { get; set; }
-        public RestCollection<Engine> Engines { get; set; }
-
 
         private Brand selectedBrand;
-
-        private Car selectedCar;
-
-
-
-
-
 
         public Brand SelectedBrand
         {
@@ -53,38 +43,6 @@ namespace AJ60J7_HFT_2021222.WpfClient
                 }
             }
         }
-
-        public Car SelectedCar
-        {
-            get { return selectedCar; }
-            set
-            {
-                if (value != null)
-                {
-                    
-                    selectedCar = new Car()
-                    {
-                        Model = value.Model,
-                        BasePrice = value.BasePrice,
-                        Id = value.Id,
-                        Engine = new Engine()
-                        {
-                            Horsepower = value.Engine.Horsepower,
-                            Type = value.Engine.Type,
-                            Id = value.Engine.Id
-                            
-                           
-                        }
-                    };
-                    OnPropertyChanged();
-                    (DeleteBrandCommand as RelayCommand).NotifyCanExecuteChanged();
-                }
-            }
-        }
-
-       
-        
-
 
         public ICommand CreatBrandCommand { get; set; }
 
@@ -107,8 +65,6 @@ namespace AJ60J7_HFT_2021222.WpfClient
             if (!IsInDesignMode)
             {
                 Brands = new RestCollection<Brand>("http://localhost:44728/", "brand");
-                Cars = new RestCollection<Car>("http://localhost:44728/", "car");
-                Engines = new RestCollection<Engine>("http://localhost:44728/", "engine");
 
                 CreatBrandCommand = new RelayCommand(() =>
                 {
