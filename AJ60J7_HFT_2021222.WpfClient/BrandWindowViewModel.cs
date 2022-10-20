@@ -12,7 +12,7 @@ using System.Windows.Input;
 
 namespace AJ60J7_HFT_2021222.WpfClient
 {
-    public class MainWindowViewModel : ObservableRecipient
+    public class BrandWindowViewModel : ObservableRecipient
     {
         private string errorMessage;
 
@@ -59,7 +59,7 @@ namespace AJ60J7_HFT_2021222.WpfClient
             }
         }
 
-        public MainWindowViewModel()
+        public BrandWindowViewModel()
         {
             
             if (!IsInDesignMode)
@@ -99,4 +99,5 @@ namespace AJ60J7_HFT_2021222.WpfClient
             }
         }
     }
+
 }

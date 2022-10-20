@@ -24,5 +24,21 @@ namespace AJ60J7_HFT_2021222.WpfClient
         {
             InitializeComponent();
         }
+
+        private void brandButton_Click(object sender, RoutedEventArgs e)
+        {
+            BrandWindow brandWindow = new BrandWindow();
+            brandWindow.Show();
+        }
+
+        private void engineButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void carButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
