@@ -33,11 +33,11 @@ namespace AJ60J7_HFT_2021222.WpfClient
             {
                 if (value != null)
                 {
-                    selectedCar = new Engine()
+                    selectedCar = new Car()
                     {
-                        Type = value.Type,
+                        Model = value.Model,
                         Id = value.Id,
-                        Horsepower = value.Horsepower
+                        BasePrice = value.BasePrice
                     };
                     OnPropertyChanged();
                     (DeleteCarCommand as RelayCommand).NotifyCanExecuteChanged();
@@ -69,10 +69,10 @@ namespace AJ60J7_HFT_2021222.WpfClient
 
                 CreatCarCommand = new RelayCommand(() =>
                 {
-                    Cars.Add(new Engine()
+                    Cars.Add(new Car()
                     {
-                        Type = SelectedCar.Type,
-                        Horsepower = SelectedCar.Horsepower
+                        Model = SelectedCar.Model,
+                        BasePrice = SelectedCar.BasePrice
 
                     });
                 });
