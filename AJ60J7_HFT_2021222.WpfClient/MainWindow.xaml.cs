@@ -33,7 +33,8 @@ namespace AJ60J7_HFT_2021222.WpfClient
 
         private void engineButton_Click(object sender, RoutedEventArgs e)
         {
-
+            EngineWindow engineWindow = new EngineWindow();
+            engineWindow.Show();
         }
 
         private void carButton_Click(object sender, RoutedEventArgs e)
