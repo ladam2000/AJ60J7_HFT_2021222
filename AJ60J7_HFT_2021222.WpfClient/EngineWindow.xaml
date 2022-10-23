@@ -16,20 +16,20 @@
 
         </Grid.ColumnDefinitions>
 
-        <ListBox ItemsSource="{Binding Brands}" SelectedItem="{Binding SelectedBrand}">
+        <ListBox ItemsSource="{Binding Engines}" SelectedItem="{Binding SelectedEngine}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Name}"/>
+                    <Label Content="{Binding Type}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
         <StackPanel Grid.Column="1">
             <Label Content="Engine Type" Background="LightBlue" Padding="10" HorizontalContentAlignment="Center" FontWeight="Bold"/>
-            <TextBox Text="{Binding SelectedBrand.Name}" Padding="10" Margin="0,0,0,30"/>
-            <Button Content="Create Engine" Command="{Binding CreatBrandCommand}" Margin="10" Padding="10" Background="LightGreen" />
-            <Button Content="Delete Engine" Command="{Binding DeleteBrandCommand}" Margin="10" Padding="10" Background="OrangeRed"/>
-            <Button Content="Update Engine" Command="{Binding UpdateBrandCommand}" Margin="10" Padding="10" Background="LightYellow"/>
+            <TextBox Text="{Binding SelectedBrand.Type}" Padding="10" Margin="0,0,0,30"/>
+            <Button Content="Create Engine" Command="{Binding CreatEngineCommand}" Margin="10" Padding="10" Background="LightGreen" />
+            <Button Content="Delete Engine" Command="{Binding DeleteEngineCommand}" Margin="10" Padding="10" Background="OrangeRed"/>
+            <Button Content="Update Engine" Command="{Binding UpdateEngineCommand}" Margin="10" Padding="10" Background="LightYellow"/>
             <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
         </StackPanel>
     </Grid>

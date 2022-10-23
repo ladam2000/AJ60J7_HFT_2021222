@@ -26,7 +26,7 @@ namespace AJ60J7_HFT_2021222.WpfClient
 
         private Engine selectedEngine;
 
-        public Engine SelectedBrand
+        public Engine SelectedEngine
         {
             get { return selectedEngine; }
             set
@@ -70,7 +70,7 @@ namespace AJ60J7_HFT_2021222.WpfClient
                 {
                     Engines.Add(new Engine()
                     {
-                        Type = SelectedBrand.Type
+                        Type = SelectedEngine.Type
                     });
                 });
 
@@ -78,7 +78,7 @@ namespace AJ60J7_HFT_2021222.WpfClient
                 {
                     try
                     {
-                        Engines.Update(SelectedBrand);
+                        Engines.Update(SelectedEngine);
                     }
                     catch (ArgumentException ex)
                     {
@@ -89,13 +89,13 @@ namespace AJ60J7_HFT_2021222.WpfClient
 
                 DeleteEngineCommand = new RelayCommand(() =>
                 {
-                    Engines.Delete(SelectedBrand.Id);
+                    Engines.Delete(SelectedEngine.Id);
                 },
                 () =>
                 {
-                    return SelectedBrand != null;
+                    return SelectedEngine != null;
                 });
-                SelectedBrand = new Engine();
+                SelectedEngine = new Engine();
             }
         }
     }
