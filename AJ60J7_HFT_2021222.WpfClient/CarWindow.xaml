@@ -7,6 +7,29 @@
         mc:Ignorable="d"
         Title="Car Editor" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+
+        </Grid.ColumnDefinitions>
+
+        <ListBox ItemsSource="{Binding Engines}" SelectedItem="{Binding SelectedEngine}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Type}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Column="1">
+            <Label Content="Car Model" Background="LightBlue" Padding="10" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+            <TextBox Text="{Binding SelectedEngine.Type}" Padding="10" Margin="0,0,0,30"/>
+            <Label Content="Car BasePrice" Background="LightBlue" Padding="10" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+            <TextBox Text="{Binding SelectedEngine.Horsepower}" Padding="10" Margin="0,0,0,30"/>
+            <Button Content="Create Car" Command="{Binding CreatEngineCommand}" Margin="10" Padding="10" Background="LightGreen" />
+            <Button Content="Delete Car" Command="{Binding DeleteEngineCommand}" Margin="10" Padding="10" Background="OrangeRed"/>
+            <Button Content="Update Car" Command="{Binding UpdateEngineCommand}" Margin="10" Padding="10" Background="LightYellow"/>
+            <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
+        </StackPanel>
     </Grid>
 </Window>
