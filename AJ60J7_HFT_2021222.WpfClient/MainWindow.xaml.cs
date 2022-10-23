@@ -39,7 +39,8 @@ namespace AJ60J7_HFT_2021222.WpfClient
 
         private void carButton_Click(object sender, RoutedEventArgs e)
         {
-
+            CarWindow carWindow = new CarWindow();
+            carWindow.Show();
         }
     }
 }
