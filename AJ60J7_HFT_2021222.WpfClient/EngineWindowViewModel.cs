@@ -71,7 +71,9 @@ namespace AJ60J7_HFT_2021222.WpfClient
                 {
                     Engines.Add(new Engine()
                     {
-                        Type = SelectedEngine.Type
+                        Type = SelectedEngine.Type,
+                        Horsepower = SelectedEngine.Horsepower
+                      
                     });
                 });
 
