@@ -14,5 +14,8 @@
 		<PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="6.0.2" />
 		<PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Brand\" />
+	</ItemGroup>
 
 </Project>

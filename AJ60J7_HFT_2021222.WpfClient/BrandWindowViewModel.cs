@@ -29,7 +29,7 @@ namespace AJ60J7_HFT_2021222.WpfClient
         public Brand SelectedBrand
         {
             get { return selectedBrand; }
-            set 
+            set
             {
                 if (value != null)
                 {
@@ -38,8 +38,8 @@ namespace AJ60J7_HFT_2021222.WpfClient
                         Name = value.Name,
                         Id = value.Id
                     };
-                   OnPropertyChanged();
-                   (DeleteBrandCommand as RelayCommand).NotifyCanExecuteChanged();
+                    OnPropertyChanged();
+                    (DeleteBrandCommand as RelayCommand).NotifyCanExecuteChanged();
                 }
             }
         }
@@ -61,14 +61,14 @@ namespace AJ60J7_HFT_2021222.WpfClient
 
         public BrandWindowViewModel()
         {
-            
+
             if (!IsInDesignMode)
             {
                 Brands = new RestCollection<Brand>("http://localhost:44728/", "brand");
 
                 CreatBrandCommand = new RelayCommand(() =>
                 {
-                    Brands.Add(new Brand() 
+                    Brands.Add(new Brand()
                     {
                         Name = SelectedBrand.Name
                     });
@@ -87,7 +87,7 @@ namespace AJ60J7_HFT_2021222.WpfClient
 
                 });
 
-                DeleteBrandCommand = new RelayCommand(()=> 
+                DeleteBrandCommand = new RelayCommand(() =>
                 {
                     Brands.Delete(SelectedBrand.Id);
                 },
