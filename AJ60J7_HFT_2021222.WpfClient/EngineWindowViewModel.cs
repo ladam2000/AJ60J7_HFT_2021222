@@ -36,7 +36,8 @@ namespace AJ60J7_HFT_2021222.WpfClient
                     selectedEngine = new Engine()
                     {
                         Type = value.Type,
-                        Id = value.Id
+                        Id = value.Id,
+                        Horsepower = value.Horsepower
                     };
                     OnPropertyChanged();
                     (DeleteEngineCommand as RelayCommand).NotifyCanExecuteChanged();
