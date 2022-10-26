@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "AJ60J7_HFT_2021222.Endpoint":{
+    "AJ60J7_HFT_2021222.Endpoint": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
