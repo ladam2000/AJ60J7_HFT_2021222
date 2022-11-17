@@ -66,6 +66,12 @@ namespace AJ60J7_HFT_2021222.Endpoint
                     await context.Response.WriteAsJsonAsync(response);
                 }));
 
+                app.UseCors(x => x
+                    .AllowCredentials()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .WithOrigins("http://localhost:60977"));
+
 
                 app.UseRouting();
 
