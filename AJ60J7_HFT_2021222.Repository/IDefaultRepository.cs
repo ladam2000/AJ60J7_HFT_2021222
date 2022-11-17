@@ -15,5 +15,6 @@ namespace AJ60J7_HFT_2021222.Repository
         
         void Update(T item);
         void Delete(int itemID);
+        
     }
 }

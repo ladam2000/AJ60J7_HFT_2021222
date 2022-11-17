@@ -18,6 +18,7 @@ namespace AJ60J7_HFT_2021222.Repository
 
         public Car ReadOne(int id)
         {
+            ;
             return context
                 .Cars
                 .FirstOrDefault(c => c.Id == id);
@@ -30,6 +31,7 @@ namespace AJ60J7_HFT_2021222.Repository
         public void Update(Car car)
         {
             Car old = ReadOne(car.Id);
+            
             old.BasePrice = car.BasePrice;
             old.BrandId = car.BrandId;
             old.Model = car.Model;
@@ -42,6 +44,7 @@ namespace AJ60J7_HFT_2021222.Repository
         }
         public void Delete(int carId)
         {
+            
             context.Cars.Remove(ReadOne(carId));
             context.SaveChanges();
         }

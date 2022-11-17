@@ -99,6 +99,7 @@ namespace AJ60J7_HFT_2021222.Logic
         /// <param name="carId"></param>
         public void Delete(int carId)
         {
+
             C_rep.Delete(carId);
         }
     }

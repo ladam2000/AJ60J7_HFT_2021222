@@ -211,9 +211,11 @@ namespace AJ60J7_HFT_2021222.Client
             else if (selection.ToUpper().Equals("CAR"))
             {
                 Console.WriteLine("The CAR's ID that needs to be deleted is:");
+                ;
                 int carID = int.Parse(Console.ReadLine());
-
+                ;
                 rest.Delete(carID, "car");
+                ;
             }
             else if (selection.ToUpper().Equals("ENGINE"))
             {

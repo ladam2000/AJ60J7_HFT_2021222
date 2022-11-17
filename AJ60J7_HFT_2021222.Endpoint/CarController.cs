@@ -44,6 +44,7 @@ namespace AJ60J7_HFT_2021222.Endpoint
         [HttpDelete("{id}")]
         public void DeleteOne([FromRoute] int carId)
         {
+            ;
             logic.Delete(carId);
         }
     }
