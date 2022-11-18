@@ -14,13 +14,13 @@ namespace AJ60J7_HFT_2021222.WpfClient
 {
     public class EngineWindowViewModel : ObservableRecipient
     {
-        private string errorMessage;
+        //private string errorMessage;
 
-        public string ErrorMessage
-        {
-            get { return errorMessage; }
-            set { SetProperty(ref errorMessage, value); }
-        }
+        //public string ErrorMessage
+        //{
+        //    get { return errorMessage; }
+        //    set { SetProperty(ref errorMessage, value); }
+        //}
 
         public RestCollection<Engine> Engines { get; set; }
 

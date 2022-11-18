@@ -32,7 +32,7 @@
             <Button Content="Create Engine" Command="{Binding CreatEngineCommand}" Margin="10" Padding="10" Background="LightGreen" />
             <Button Content="Delete Engine" Command="{Binding DeleteEngineCommand}" Margin="10" Padding="10" Background="OrangeRed"/>
             <Button Content="Update Engine" Command="{Binding UpdateEngineCommand}" Margin="10" Padding="10" Background="LightYellow"/>
-            <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
+            
         </StackPanel>
     </Grid>
 </Window>
