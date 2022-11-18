@@ -31,17 +31,20 @@ namespace AJ60J7_HFT_2021222.WpfClient
             get { return selectedEngine; }
             set
             {
-                if (value != null)
-                {
-                    selectedEngine = new Engine()
-                    {
-                        Type = value.Type,
-                        Id = value.Id,
-                        Horsepower = value.Horsepower
-                    };
-                    OnPropertyChanged();
-                    (DeleteEngineCommand as RelayCommand).NotifyCanExecuteChanged();
-                }
+                SetProperty(ref selectedEngine, value);
+                (DeleteEngineCommand as RelayCommand).NotifyCanExecuteChanged();
+                (UpdateEngineCommand as RelayCommand).NotifyCanExecuteChanged();
+                //if (value != null)
+                //{
+                //    selectedEngine = new Engine()
+                //    {
+                //        Type = value.Type,
+                //        Id = value.Id,
+                //        Horsepower = value.Horsepower
+                //    };
+                //    OnPropertyChanged();
+                //    (DeleteEngineCommand as RelayCommand).NotifyCanExecuteChanged();
+                //}
             }
         }
 
@@ -77,18 +80,23 @@ namespace AJ60J7_HFT_2021222.WpfClient
                     });
                 });
 
-                UpdateEngineCommand = new RelayCommand(() =>
-                {
-                    try
-                    {
-                        Engines.Update(SelectedEngine);
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        ErrorMessage = ex.Message;
-                    }
+                //UpdateEngineCommand = new RelayCommand(() =>
+                //{
+                //    try
+                //    {
+                //        Engines.Update(SelectedEngine);
 
-                });
+                //    }
+                //    catch (ArgumentException ex)
+                //    {
+                //        ErrorMessage = ex.Message;
+                //    }
+
+                //});
+                UpdateEngineCommand = new RelayCommand(
+                    () => { Engines.Update(SelectedEngine); },
+                        () => { return SelectedEngine != null; }
+                );
 
                 DeleteEngineCommand = new RelayCommand(() =>
                 {
@@ -98,7 +106,7 @@ namespace AJ60J7_HFT_2021222.WpfClient
                 {
                     return SelectedEngine != null;
                 });
-                SelectedEngine = new Engine();
+                //SelectedEngine = new Engine();
             }
         }
     }
