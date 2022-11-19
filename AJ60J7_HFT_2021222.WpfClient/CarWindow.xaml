@@ -32,7 +32,6 @@
             <Button Content="Create Car" Command="{Binding CreatCarCommand}" Margin="10" Padding="10" Background="LightGreen" />
             <Button Content="Delete Car" Command="{Binding DeleteCarCommand}" Margin="10" Padding="10" Background="OrangeRed"/>
             <Button Content="Update Car" Command="{Binding UpdateCarCommand}" Margin="10" Padding="10" Background="LightYellow"/>
-            <Label Content="{Binding ErrorMessage}" FontSize="18" Foreground="Red" HorizontalContentAlignment="Center" />
         </StackPanel>
     </Grid>
 </Window>
