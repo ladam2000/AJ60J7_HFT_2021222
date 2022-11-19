@@ -13,6 +13,7 @@
     <ProjectReference Include="..\AJ60J7_HFT_2021222.Logic\AJ60J7_HFT_2021222.Logic.csproj" />
     <ProjectReference Include="..\AJ60J7_HFT_2021222.Models\AJ60J7_HFT_2021222.Models.csproj" />
     <ProjectReference Include="..\AJ60J7_HFT_2021222.Repository\AJ60J7_HFT_2021222.Repository.csproj" />
+	
   </ItemGroup>
 
 </Project>

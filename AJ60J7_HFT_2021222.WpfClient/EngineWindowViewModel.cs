@@ -58,7 +58,7 @@ namespace AJ60J7_HFT_2021222.WpfClient
 
             if (!IsInDesignMode)
             {
-                Engines = new RestCollection<Engine>("http://localhost:44728/", "engine");
+                Engines = new RestCollection<Engine>("http://localhost:44728/", "engine","hub");
                 try
                 {
                     CreatEngineCommand = new RelayCommand(() =>

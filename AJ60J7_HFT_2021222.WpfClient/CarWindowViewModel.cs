@@ -61,7 +61,7 @@ namespace AJ60J7_HFT_2021222.WpfClient
 
             if (!IsInDesignMode)
             {
-                Cars = new RestCollection<Car>("http://localhost:44728/", "car");
+                Cars = new RestCollection<Car>("http://localhost:44728/", "car","hub");
                 try
                 {
                     CreatCarCommand = new RelayCommand(() =>

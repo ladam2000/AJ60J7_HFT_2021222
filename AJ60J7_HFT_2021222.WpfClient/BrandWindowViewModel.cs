@@ -58,7 +58,7 @@ namespace AJ60J7_HFT_2021222.WpfClient
 
             if (!IsInDesignMode)
             {
-                Brands = new RestCollection<Brand>("http://localhost:44728/", "brand");
+                Brands = new RestCollection<Brand>("http://localhost:44728/", "brand","hub");
                 try
                 {
                     CreatBrandCommand = new RelayCommand(() =>

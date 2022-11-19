@@ -1,3 +1,4 @@
+using AJ60J7_HFT_2021222.Endpoint.Services;
 using AJ60J7_HFT_2021222.Logic;
 using AJ60J7_HFT_2021222.Models;
 using AJ60J7_HFT_2021222.Repository;
@@ -38,6 +39,8 @@ namespace AJ60J7_HFT_2021222.Endpoint
             //services.AddTransient<ICarRepository, CarRepository>();
             //services.AddTransient<IBrandRepository, BrandRepository>();
             //services.AddTransient<IEngineRepository, EngineRepository>();
+
+            services.AddSignalR();
 
             services.AddTransient<CarShopContext, CarShopContext>();
             services.AddSwaggerGen(c =>
@@ -81,6 +84,7 @@ namespace AJ60J7_HFT_2021222.Endpoint
                 app.UseEndpoints(endpoints =>
                 {
                     endpoints.MapControllers();
+                    endpoints.MapHub<SignalRHub>("/hub");
                 });
             
         }

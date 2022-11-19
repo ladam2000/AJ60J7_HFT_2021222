@@ -30,7 +30,7 @@
             <Label Content="Engine HorsePower" Background="LightBlue" Padding="10" HorizontalContentAlignment="Center" FontWeight="Bold"/>
             <TextBox Text="{Binding SelectedEngine.Horsepower}" Padding="10" Margin="0,0,0,30"/>
             <Button Content="Create Engine" Command="{Binding CreatEngineCommand}" Margin="10" Padding="10" Background="LightGreen" />
-            <Button Content="Delete Engine *" Command="{Binding DeleteEngineCommand}" Margin="10" Padding="10" Background="OrangeRed"/>
+            <Button Content="Delete Engine " Command="{Binding DeleteEngineCommand}" Margin="10" Padding="10" Background="OrangeRed"/>
             <Button Content="Update Engine" Command="{Binding UpdateEngineCommand}" Margin="10" Padding="10" Background="LightYellow"/>
             
         </StackPanel>
