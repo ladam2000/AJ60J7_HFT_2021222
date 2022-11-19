@@ -14,14 +14,6 @@ namespace AJ60J7_HFT_2021222.WpfClient
 {
     public class BrandWindowViewModel : ObservableRecipient
     {
-        private string errorMessage;
-
-        public string ErrorMessage
-        {
-            get { return errorMessage; }
-            set { SetProperty(ref errorMessage, value); }
-        }
-
         public RestCollection<Brand> Brands { get; set; }
 
         private Brand selectedBrand;
@@ -31,6 +23,7 @@ namespace AJ60J7_HFT_2021222.WpfClient
             get { return selectedBrand; }
             set
             {
+
                 if (value != null)
                 {
                     selectedBrand = new Brand()
@@ -40,6 +33,7 @@ namespace AJ60J7_HFT_2021222.WpfClient
                     };
                     OnPropertyChanged();
                     (DeleteBrandCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (UpdateBrandCommand as RelayCommand).NotifyCanExecuteChanged();
                 }
             }
         }
@@ -65,37 +59,35 @@ namespace AJ60J7_HFT_2021222.WpfClient
             if (!IsInDesignMode)
             {
                 Brands = new RestCollection<Brand>("http://localhost:44728/", "brand");
-
-                CreatBrandCommand = new RelayCommand(() =>
+                try
                 {
-                    Brands.Add(new Brand()
+                    CreatBrandCommand = new RelayCommand(() =>
                     {
-                        Name = SelectedBrand.Name
+                        Brands.Add(new Brand()
+                        {
+                            Name = SelectedBrand.Name
+                        });
                     });
-                });
+                    UpdateBrandCommand = new RelayCommand(
+                        () => { Brands.Update(SelectedBrand); },
+                            () => { return SelectedBrand != null; }
+                    );
 
-                UpdateBrandCommand = new RelayCommand(() =>
-                {
-                    try
+                    DeleteBrandCommand = new RelayCommand(() =>
                     {
-                        Brands.Update(SelectedBrand);
-                    }
-                    catch (ArgumentException ex)
+                        Brands.Delete(SelectedBrand.Id);
+                    },
+                    () =>
                     {
-                        ErrorMessage = ex.Message;
-                    }
-
-                });
-
-                DeleteBrandCommand = new RelayCommand(() =>
+                        return SelectedBrand != null;
+                    });
+                    SelectedBrand = new Brand();
+                }
+                catch (NullException e)
                 {
-                    Brands.Delete(SelectedBrand.Id);
-                },
-                () =>
-                {
-                    return SelectedBrand != null;
-                });
-                SelectedBrand = new Brand();
+                    MessageBox.Show(e.Message);
+                }
+               
             }
         }
     }

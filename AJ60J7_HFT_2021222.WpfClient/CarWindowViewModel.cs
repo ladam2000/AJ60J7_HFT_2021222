@@ -14,14 +14,6 @@ namespace AJ60J7_HFT_2021222.WpfClient
 {
     public class CarWindowViewModel : ObservableRecipient
     {
-        //private string errorMessage;
-
-        //public string ErrorMessage
-        //{
-        //    get { return errorMessage; }
-        //    set { SetProperty(ref errorMessage, value); }
-        //}
-
         public RestCollection<Car> Cars { get; set; }
 
         private Car selectedCar;
@@ -31,20 +23,21 @@ namespace AJ60J7_HFT_2021222.WpfClient
             get { return selectedCar; }
             set
             {
-                SetProperty(ref selectedCar, value);
-                (DeleteCarCommand as RelayCommand).NotifyCanExecuteChanged();
-                (UpdateCarCommand as RelayCommand).NotifyCanExecuteChanged();
-                //if (value != null)
-                //{
-                //    selectedCar = new Car()
-                //    {
-                //        Model = value.Model,
-                //        Id = value.Id,
-                //        BasePrice = value.BasePrice
-                //    };
-                //    OnPropertyChanged();
-                //    (DeleteCarCommand as RelayCommand).NotifyCanExecuteChanged();
-                //}
+                //SetProperty(ref selectedCar, value);
+                //(DeleteCarCommand as RelayCommand).NotifyCanExecuteChanged();
+                //(UpdateCarCommand as RelayCommand).NotifyCanExecuteChanged();
+                if (value != null)
+                {
+                    selectedCar = new Car()
+                    {
+                        Model = value.Model,
+                        Id = value.Id,
+                        BasePrice = value.BasePrice
+                    };
+                    OnPropertyChanged();
+                    (DeleteCarCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (UpdateCarCommand as RelayCommand).NotifyCanExecuteChanged();
+                }
             }
         }
 
@@ -69,44 +62,38 @@ namespace AJ60J7_HFT_2021222.WpfClient
             if (!IsInDesignMode)
             {
                 Cars = new RestCollection<Car>("http://localhost:44728/", "car");
-
-                CreatCarCommand = new RelayCommand(() =>
+                try
                 {
-                    Cars.Add(new Car()
+                    CreatCarCommand = new RelayCommand(() =>
                     {
-                        Model = SelectedCar.Model,
-                        BasePrice = SelectedCar.BasePrice
+                        Cars.Add(new Car()
+                        {
+                            Model = SelectedCar.Model,
+                            BasePrice = SelectedCar.BasePrice
 
+                        });
                     });
-                });
 
-                //UpdateCarCommand = new RelayCommand(() =>
-                //{
-                //    try
-                //    {
-                //        Cars.Update(SelectedCar);
-                //    }
-                //    catch (ArgumentException ex)
-                //    {
-                //        ErrorMessage = ex.Message;
-                //    }
-
-                //});
-                UpdateCarCommand = new RelayCommand(
+                    UpdateCarCommand = new RelayCommand(
                     () => { Cars.Update(SelectedCar); },
                         () => { return SelectedCar != null; }
-                );
+                    );
+                    DeleteCarCommand = new RelayCommand(() =>
+                    {
+                        //ez a gomb fejlesztés alatt áll :D
+                        Cars.Delete(SelectedCar.Id);
+                    },
+                    () =>
+                    {
+                        return SelectedCar != null;
+                    });
+                    SelectedCar = new Car();
 
-                DeleteCarCommand = new RelayCommand(() =>
+                }
+                catch (NullException e)
                 {
-                    //ez a gomb fejlesztés alatt áll :D
-                    Cars.Delete(SelectedCar.Id);
-                },
-                () =>
-                {
-                    return SelectedCar != null;
-                });
-                //SelectedCar = new Car();
+                    MessageBox.Show(e.Message);
+                }
             }
         }
     }

@@ -14,14 +14,6 @@ namespace AJ60J7_HFT_2021222.WpfClient
 {
     public class EngineWindowViewModel : ObservableRecipient
     {
-        //private string errorMessage;
-
-        //public string ErrorMessage
-        //{
-        //    get { return errorMessage; }
-        //    set { SetProperty(ref errorMessage, value); }
-        //}
-
         public RestCollection<Engine> Engines { get; set; }
 
         private Engine selectedEngine;
@@ -41,6 +33,7 @@ namespace AJ60J7_HFT_2021222.WpfClient
                     };
                     OnPropertyChanged();
                     (DeleteEngineCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (UpdateEngineCommand as RelayCommand).NotifyCanExecuteChanged();
                 }
             }
         }
@@ -66,39 +59,39 @@ namespace AJ60J7_HFT_2021222.WpfClient
             if (!IsInDesignMode)
             {
                 Engines = new RestCollection<Engine>("http://localhost:44728/", "engine");
-
-                CreatEngineCommand = new RelayCommand(() =>
+                try
                 {
-                    Engines.Add(new Engine()
+                    CreatEngineCommand = new RelayCommand(() =>
                     {
-                        Type = SelectedEngine.Type,
-                        Horsepower = SelectedEngine.Horsepower
-                      
+                        Engines.Add(new Engine()
+                        {
+                            Type = SelectedEngine.Type,
+                            Horsepower = SelectedEngine.Horsepower
+
+                        });
                     });
-                });
 
-                UpdateEngineCommand = new RelayCommand(() =>
-                {
-                    try
+                    UpdateEngineCommand = new RelayCommand(
+                    () => { Engines.Update(SelectedEngine); },
+                        () => { return SelectedEngine != null; }
+                    );
+
+                    DeleteEngineCommand = new RelayCommand(() =>
                     {
-                        Engines.Update(SelectedEngine);
-                    }
-                    catch (ArgumentException ex)
+                        Engines.Delete(SelectedEngine.Id);
+                    },
+                    () =>
                     {
-                        ErrorMessage = ex.Message;
-                    }
-
-                });
-
-                DeleteEngineCommand = new RelayCommand(() =>
+                        return SelectedEngine != null;
+                    });
+                    SelectedEngine = new Engine();
+                }
+                catch (NullException e)
                 {
-                    Engines.Delete(SelectedEngine.Id);
-                },
-                () =>
-                {
-                    return SelectedEngine != null;
-                });
-                SelectedEngine = new Engine();
+                    MessageBox.Show(e.Message);
+                }
+
+
             }
         }
     }

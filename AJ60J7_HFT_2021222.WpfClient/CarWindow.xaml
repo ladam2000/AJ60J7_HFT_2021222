@@ -30,7 +30,7 @@
             <Label Content="Car BasePrice" Background="LightBlue" Padding="10" HorizontalContentAlignment="Center" FontWeight="Bold"/>
             <TextBox Text="{Binding SelectedCar.BasePrice}" Padding="10" Margin="0,0,0,30"/>
             <Button Content="Create Car" Command="{Binding CreatCarCommand}" Margin="10" Padding="10" Background="LightGreen" />
-            <Button Content="Delete Car" Command="{Binding DeleteCarCommand}" Margin="10" Padding="10" Background="OrangeRed"/>
+            <Button Content="Delete Car*" Command="{Binding DeleteCarCommand}" Margin="10" Padding="10" Background="OrangeRed"/>
             <Button Content="Update Car" Command="{Binding UpdateCarCommand}" Margin="10" Padding="10" Background="LightYellow"/>
         </StackPanel>
     </Grid>
